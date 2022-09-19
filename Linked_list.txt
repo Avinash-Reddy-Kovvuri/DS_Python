@@ -1,0 +1,51 @@
+class node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+       
+class LinkedList:
+    def __init__(self):
+        self.head = None
+   
+    def creation(self):
+        self.n = int(input("Enter no of elements : "))
+        self.head = node(int(input("Enter Data : ")))
+        v = self.head
+        for i in range((self.n)-1):
+            new = node(int(input("Enter Data : ")))
+            v.next = new
+            v = new
+       
+    def traverse(self):
+        temp = self.head
+        while (temp):
+            print(temp.data,end=" ")
+            temp = temp.next
+        print()
+           
+    def inertion(self):
+        self.dat = input("front/end/middle : ")
+        if(self.dat == "front"):
+            c = node(int(input("Enter Data : ")))
+            c.next = self.head
+            self.head = c
+        elif(self.dat == "end"):
+            temp = self.head
+            while (temp):
+                temp = temp.next
+            c = node(int(input("Enter Data : ")))
+            temp = c
+        elif(self.dat == "middle"):
+            temp = self.head
+            for i in range((self.n)//2-1):
+                temp = temp.next
+            c = node(int(input("Enter Data : ")))
+            a = temp.next
+            temp.next = c
+            c.next = a
+   
+s = LinkedList()
+s.creation()
+s.traverse()
+s.inertion()
+s.traverse()
